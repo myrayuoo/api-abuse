@@ -55,14 +55,15 @@ def post_req():
 t = threading.Thread
 
 def printer():
-    os.system("cls")
-    print(f"""
-    Fizinicitel
+    while True:
+        os.system("cls")
+        print(f"""
+        Fizinicitel
 
-    S> Sent> {sent}
-    O> Other> {other}
-    T> Threads> {threads}""")
-    time.sleep(0.1)
+        S> Sent> {sent}
+        O> Other> {other}
+        T> Threads> {threads}""")
+        time.sleep(0.1)
 
 try:
     t(target=printer).start()
