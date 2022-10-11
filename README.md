@@ -4,3 +4,8 @@
 
 Simple tools made in python 3.10.x to do some stuff on mostly czech/slovak websites with requests
 ```
+
+## Info
+```
+czc.cz method is patched
+```
