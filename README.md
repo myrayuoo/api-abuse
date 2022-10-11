@@ -1,4 +1,6 @@
-# buffoonery
-some ass tools to bot some websites lol
+# Gugu.lgbt
+```
+[!] Educational purposes only
 
-educational purposes only
+Simple tools made in python to do some stuff on mostly czech/slovak websites with requests
+```
