@@ -22,26 +22,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-#WARNING: YOUR IP WILL BE BLACKLISTED AFTER SOME AMOUNT OF REQUESTS
+#WARNING: YOUR IP WILL BE BLACKLISTED AFTER SOME AMOUNT OF REQUESTS, PROXIES SOON(tm)
 import threading, requests, random, string, os, time
 
 def printer():
     while True:
         os.system("cls")
-        print(f"""
-   _____ __                      _   __      __      
-  / ___// /_  ____  ____  ____ _/ | / /_  __/ /_____ 
-  \__ \/ __ \/ __ \/ __ \/ __ `/  |/ / / / / //_/ _ \\
- ___/ / / / / /_/ / /_/ / /_/ / /|  / /_/ / ,< /  __/
-/____/_/ /_/\____/ .___/\__,_/_/ |_/\__,_/_/|_|\___/ 
-                /_/ > Fotrmail.gg productions
+        print(f"""                            _       _     _   
+  __ _ _   _  __ _ _   _  | | __ _| |__ | |_ 
+ / _` | | | |/ _` | | | | | |/ _` | '_ \| __|
+| (_| | |_| | (_| | |_| |_| | (_| | |_) | |_ 
+ \__, |\__,_|\__, |\__,_(_)_|\__, |_.__/ \__|
+ |___/       |___/           |___/           
+> Registration spammer   
                 
-[>] Threads Active> {threads}
+Threads Active> {threads}
 
-[200] Successful Requests> {success}x
-[429] Ratelimited> {ratelimit}x
-[302] Found> {found}x
-[*] Failed Requests> {fail}x""")
+200> Successful Requests> {success}x
+429> Ratelimited> {ratelimit}x
+302> Found> {found}x
+***> Failed Requests> {fail}x""")
         time.sleep(0.5)
 
 success = 0

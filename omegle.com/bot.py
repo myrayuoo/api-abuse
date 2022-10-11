@@ -57,6 +57,8 @@ def run(front, message):
             print("Event successful")
             request_gif()
             send_msg(message, client_id)
+        else:
+            print("Event Failed")
 
     def send_msg(text, client_id):
         time.sleep(2)
@@ -75,17 +77,17 @@ def random_front():
     return "front"+str(random.randint(1,40))
 
 def main():
-    print("""______    _       ______       _   _            
-|  ___|  | |      | ___ \     | | | |           
-| |_ ___ | |_ _ __| |_/ / ___ | |_| |_ ___ _ __ 
-|  _/ _ \| __| '__| ___ \/ _ \| __| __/ _ \ '__|
-| || (_) | |_| |  | |_/ / (_) | |_| ||  __/ |   
-\_| \___/ \__|_|  \____/ \___/ \__|\__\___|_|   
-> For omegle                                                
+    print("""                            _       _     _   
+  __ _ _   _  __ _ _   _  | | __ _| |__ | |_ 
+ / _` | | | |/ _` | | | | | |/ _` | '_ \| __|
+| (_| | |_| | (_| | |_| |_| | (_| | |_) | |_ 
+ \__, |\__,_|\__, |\__,_(_)_|\__, |_.__/ \__|
+ |___/       |___/           |___/           
+> Omegle bot                                               
     """)
 
-    message = input("> Message: ")
-    amount = int(input("> Amount: "))
+    message = input("Message> ")
+    amount = int(input("Amount> "))
 
     for x in range(amount):
         threading.Thread(target=run, args=(random_front(),message)).start()

